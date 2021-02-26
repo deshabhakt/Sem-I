@@ -1,0 +1,352 @@
+<html style><!--
+ Page saved with SingleFile 
+ url: https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code.html 
+ saved date: Tue Dec 29 2020 11:10:19 GMT+0530 (India Standard Time)
+--><meta charset=utf-8>
+<title>CMSC483 Parallel Programming Code Examples</title>
+<link type=image/x-icon rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAFfKj/FAAAAwFBMVEUAAAABAwM7ZoNmsOFxwfhlrd0zWHEbLzxcnspvv/VuvfJSjbQLFBk7ZYJzxfxMgqckPU9gpdMjPU5yw/omQlRBcJBIfJ9mr+ByxPsHDA8QGyMQHCRnsOJam8Y+aogjPE0GCw5xwvkZKzdamsVlrt8ECAo6ZIAuUGYlQFIJEBQsS2A4YHtGeZtjqtoqSFxuvPE3XnhbnMgAAQE1W3UiOkteos9wwfdTj7dCcpJvvvQeNEMRHiYDBgclQFNuvvMIDRG+j5ebAAAAp0lEQVQY022OiQ6CMBBEV1FU1PXWigpSLzxRvBHh//+K3TYmmviymUxnp00BiAcLIokkSVIJCgtQ5bSWSUquiUZXRT4GRzYQxCGNbqnih3qj1e70+gAeHWboAGx3+4NnnlSXYRPHNGykpPle5fJGoWhCqVyxqjV+cCCGYI9gjBPHnXIwFwtwl3LlrzfC4iCkK8YZLtdbcLf1L/AZRdFLqw6Yt9b/jR8yJmITs7/Q9Z4AAAAASUVORK5CYII="><link rel=canonical href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code.html></head>
+<body>
+<div>
+<font size=+1><b>CMSC483/691 Parallel Programs</b>
+</font></div><font size=+1>
+<hr>
+I want to thank <a href=http://www.cs.usfca.edu/~peter/>Peter Pacheco</a> for making many of these programs available.<br>
+<p>
+Program Timer: <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/code/timer.h>timer.h</a><br>
+<ul>
+<li>SIMD:Instruction Level Parallelism
+ <ul>
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/c_simd.c>C SIMD intrinsics</a></li> 
+ </ul>
+<br>
+<li>Tasking: Generates tasks to help understand data dependence and function independence 
+ <ul>
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/tasks.c>Generate fine grain tasks for each loop iteration, and user defined functions.</a></li> 
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/task_vec.c>Generate coarse grain tasks for using vectors and user defined functions.</a></li> 
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/cores.cpp>maps tasks to cores(sched_setaffinity)</a></li> 
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/sysdata_linux.c>timing and threading utilities</a></li> 
+ </ul>
+<br>
+<li>Basic Parallel Communication Operations:
+ <ul>
+ <li> Broadcast: one-to-all, all-to-all Reduce for hypercube, ring, 2-D mesh; Prefix sum, and scatter-gather, more to be added.</li>
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/comm.c>Parallel Communication Algorithms</a></li> 
+ </ul>
+<br>
+<li>Deadlock 
+ <ul>
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/deadlock.c>MPI Deadlock</a></li> 
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/deadlockf.c>MPI Deadlock(fixed)</a></li> 
+ </ul>
+<br>
+<li> Barriers 
+ <ul>
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/barrier1.c>Barrier w/counter 1</a></li> 
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/barrier2.c>Barrier w/counter 2</a></li> 
+ </ul>
+<br>
+<li> N Body Simulation
+ <ul>
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/nbodypipe.c>Pipelined nbody</a></li> 
+ </ul>
+<br>
+ <li>Circuit Satisfiability
+ <ul>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/sat/sat1.c>MPI Circuit Sat, simple, no communication</a>
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/sat/Circuit_sat.png>Image of circuit to be solved</a>
+ </ul> 
+<br>
+<li> Parallel Programs in <a href=https://chapel-lang.org/>Chapel</a>
+ <ul>
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/matmul.chpl>Matrix Multiply, compares with using BLAS</a></li> 
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/fact.chpl>Factorial vs. Sterling Approximation</a></li> 
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/gausselim.chpl>Gaussian Elimination</a> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/lineqschpl>(linear equations</a> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/lineqs2chpl>another 3x3</a>)</li>
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/monte_pi_ser.chpl>Serial Monte Carlo Pi calculation</a></li> 
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/monte_pi_par.chpl>Parallel Monte Carlo Pi calculation</a></li> 
+ </ul>
+ 
+<br>
+ <li> Trapezoidal Rule
+ <ul>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/trap/trap1.py>Driver for Python trapezoidal
+ rule program</a>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/trap/trap.py>Complete implementation of
+ Python trapezoidal rule program</a>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/trap/Trap1.java>Driver for Java trapezoidal 
+ rule program</a>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/trap/Trap.java>Complete implementation of
+ Java trapezoidal rule program</a>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/trap/trap.c>C implementation of the trapezoidal 
+ rule</a>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/trap/simpson.c>C implementation of the trapezoidal 
+ rule and Simpson's rule</a>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/trap/mpi_trap.c>MPI implementation of the 
+ trapezoidal rule</a>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/trap/mpi_trap_time.c>MPI implementation of the 
+ trapezoidal rule</a>. This version includes timing data.
+ </ul>
+<br>
+ <li> Heat Equation
+ <ul>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/heat-eqn/input_data.c>A program for generating
+ input to the heat equation solver</a>.
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/heat-eqn/exact_solution.c>A program for generating
+ the exact solution to the heat equation</a>.
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/heat-eqn/fin_diff.c>A program that uses
+ finite differences to attempt to solve the
+ heat equation</a>.
+<li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/heat-eqn/heated_plate.c>Simple serial 2D heated plate </a><p>
+<font face=courier>To run: ./heated_plate 0.001 output_0.001</font><br>
+</p><li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/heat-eqn/grid_to_bmp.cpp>tool for plotting the output</a><p>
+<font face=courier>To run: ./grid_to_bmp output_0.001 output_0.001.bmp</font><br>
+</p><li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/heat-eqn/out_0.001.png>Output image from the serial program</a>
+ </ul>
+<br>
+ <li> MPI Hello, World
+ <ul>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/mpi-hello/mpi_hello0.c>MPI greetings
+ program</a>. In this version each nonzero process sends a greeting
+ to process 0
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/mpi-hello/mpi_hello1.c>Second MPI greetings
+ program</a>. In this version each process sends a greeting
+ to the next higher-ranked process, with process <em>p-1</em> sending
+ its greeting to process 0.
+ </ul>
+<br>
+ <li> MPI Global Sum
+ <ul>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/global-sum/global_sum.c>First implementation
+ of global sum</a>. Requires that <tt>p</tt> be a power of 2.
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/global-sum/global_sum2.c>Second implementation
+ of global sum</a>. OK for any value of <tt>p</tt>.
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/global-sum/global_sum_bf.c>Third implementation
+ of global sum</a>. Distributes result to all the processes.
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/global-sum/gs_mpi_red.c>Uses 
+ <tt>MPI_Reduce</tt></a>.
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/global-sum/gs_mpi_allred.c>Uses 
+ <tt>MPI_Allreduce</tt></a>.
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/global-sum/global_sum_driver.c>Driver
+ program for a <tt>Global_sum</tt> function</a>.
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/global-sum/global_sum_rp.c>Global sum
+ to all that uses a ring-pass</a>.
+ </ul>
+<br>
+ <li> MPI Broadcast
+ <ul>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/bcast/bcast_driver.c>Driver for an MPI
+ implementation of broadcast</a>. Note that the <tt>Bcast</tt>
+ function uses pseudo-code. So this is not a working program.
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/bcast/bcast.c>Implementation of a 
+ tree-structured broadcast</a>.
+ </ul>
+<br>
+ <li> The Floyd-Warshall Algorithm
+ <ul>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/floyd/floyd.c>A serial implementation
+ of Floyd's algorithm</a>.
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/floyd/gen_mat.c>A program that will
+ generate input for the implementation of Floyd's 
+ Algorithm.</a>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/floyd/print_row.c>A C function that
+ will print a row of an int matrix as a string.</a>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/floyd/mpi_floyd.c>An MPI implementation
+ of Floyd's algorithm</a>.
+ </ul>
+<br>
+ <li>Prim's Algorithm(uses GraphViz for vizualization)
+ <ul>
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/prims_undirected.c>A serial implementation of Prim's undirected MST algorithm</a>
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/prims_directed.c>A serial implementation of Prim's directed MST algorithm</a>
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/problem_un.gif>image of the generated undirected graph</a>
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/graph_un.gif>image of the undirected MST, solution</a>
+ </ul>
+<br>
+ <li> Linear Algebra: serial and parallel 
+ <ul>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/matrix_sq.c>Matrix Square (OpenMP)</a>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/mat-vect/serial_dot.c>Serial dot product</a>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/mat-vect/parallel_dot.c>Parallel 
+ dot product</a>. In this version, the dot product is
+ only valid on process 0.
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/mat-vect/parallel_dot1.c>Parallel 
+ dot product</a>. In this version, the dot product is
+ valid on all the processes.
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/mat-vect/serial_mat_vect.c>Serial
+ matrix-vector multiplication</a>. 
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/mat-vect/parallel_mat_vect.c>Parallel
+ matrix-vector multiplication</a>. 
+ </ul>
+<br>
+ <li> Sorting
+ <ul>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/sorting/bucksort.c>A serial bucket sort</a>.
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/sorting/serial_bubble.c>A serial bubble
+ sort</a>.
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/sorting/serial_odd_even.c>A serial odd-even sort</a>.
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/sorting/serial_qsort.c>A serial quick sort that
+ uses the C <tt>qsort</tt> function</a>.
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/sorting/parallel_odd_even.c>A parallel
+ odd-even sort</a>.
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/sorting/serial_bubble_timed.c>A serial bubble
+ sort that reports elapsed time</a>.
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/sorting/serial_odd_even_timed.c>A serial
+ odd-even sort that reports elapsed time</a>.
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/sorting/pth_bitonic.c>A Pthreads
+ implementation of bitonic sort</a>.
+ </ul>
+<br>
+ <li> Basic Pthreads
+ <ul>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pthreads/pth_hello.c>A Pthreads hello
+ program</a>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pthreads/many_mutexes.c>A Pthreads program
+ that locks and unlocks a mutex many times</a>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pthreads/many_sems.c>A Pthreads program
+ that ``locks'' and ``unlocks'' a semaphore many times</a>
+ </ul>
+<br>
+ <li> Linear Algebra: Pthreads
+ <ul>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pth-mat-vect/pth_mat_vect.c>A Pthreads 
+ matrix-vector multiplication program</a>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pth-mat-vect/pth_daxpy.c>A Pthreads 
+ DAXPY program</a>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pth-mat-vect/pth_mat_vect_rand.c>A Pthreads 
+ matrix-vector multiplication program</a>. This version
+ uses a random number generator to generate the matrix
+ and the vector.
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pth-mat-vect/pth_mat_vect_rand_opt3.c>A 
+ Pthreads 
+ matrix-vector multiplication program</a>. This version
+ uses a random number generator to generate the matrix
+ and the vector. It also uses local storage for the
+ partial sums to the product vector <tt>y</tt>.
+ </ul>
+<br>
+ <li> Finding and Printing Primes 
+ <ul>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/primes/primes1.c>A serial
+ program for finding primes</a>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/primes/mpi_print_list.c>An MPI
+ program that prints a list of ints as a string</a>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/primes/mpi_primes_sort.c>An MPI
+ program that finds primes and prints them in
+ sorted order</a>
+ </ul>
+<br>
+ <li> Approximating Pi
+ <ul>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pi/monte_carlo_pi.c>An MPI 
+ program for approximating pi using the Monte Carlo Method</a>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pi/pi.c>A serial
+ program for approximating pi</a>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pi/pth_pi.c>A buggy threaded
+ program for approximating pi</a>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pi/pth_pi_busy.c>A threaded
+ program for approximating pi that uses busy-waiting</a>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pi/pth_pi_busy2.c>A threaded
+ program for approximating pi that uses busy-waiting and
+ reduces the number of times each thread enters the 
+ critical section</a>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pi/pth_pi_mutex.c>A threaded
+ program for approximating pi that uses a mutex
+ to limit the number of threads in the critical section</a>
+ <li> <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pi/pth_pi_sem.c>A threaded
+ program for approximating pi that uses a semaphore
+ to limit the number of threads in the critical section</a>
+ </ul>
+<br>
+ <li> Pthreads Message-Passing
+ <ul>
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pth-msg/pth_msg.c>First attempt to send
+ messages from one thread to another</a>
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pth-msg/pth_msg_sem.c>Sending messages
+ among threads using semaphores</a>
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pth-msg/pth_msg_sem_mac.c>Sending messages
+ among threads using <em>named</em> semaphores</a>. This
+ should work on a Mac.
+ </ul>
+<br>
+ <li> Pthreads Barriers
+ <ul>
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pth-bar/pth_bar.c>Use a Pthreads 
+ barrier</a>
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pth-bar/pth_busy_bar1.c>Implement
+ a barrier with a counter, a mutex, and a busy-wait
+ loop</a>
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pth-bar/pth_sem_bar0.c>Implement
+ a barrier with a counter and two semaphores</a>
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pth-bar/pth_cond_bar.c>Implement
+ a barrier with a Pthreads condition variable</a>
+ </ul>
+<br>
+ <li> Thread Safety
+ <ul>
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pth-safe/pth_tokenize.c>Use Pthreads,
+ semaphores, and <tt>strtok</tt> to implement a
+ tokenizer</a>. This has a serious bug.
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pth-safe/pth_tokenize_safe1.c>Use Pthreads,
+ semaphores, and <tt>strtok_r</tt> to implement a
+ tokenizer</a>. This fixes the bug in the first
+ tokenizer.
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pth-safe/pth_rand.c>A Pthreads program
+ that uses a random number generator that isn't 
+ threadsafe</a>
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pth-safe/pth_rand_safe.c>A Pthreads program
+ with a threadsafe random number generator</a>
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pth-safe/ser_rand.c>A serial program
+ that uses the random number generator that's not
+ threadsafe</a>
+ </ul>
+<br>
+ <li> Read-Write Locks
+ <ul>
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pth-rw/linked_list.c>Serial program
+ that stores a sorted linked list of ints</a>.
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pth-rw/pth_linked_list_one_mut.c>Pthreads
+ linked list program that uses a single mutex to control
+ access to the list</a>. 
+ This uses <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pth-rw/my_rand.c><tt>my_rand.c</tt></a> 
+ and <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pth-rw/my_rand.h><tt>my_rand.h</tt></a> to 
+ generate pseudo-random numbers.
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pth-rw/pth_linked_list_mult_mut.c>Pthreads 
+ linked list program that uses one mutex per node to control 
+ access to the list</a>
+ This uses <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pth-rw/my_rand.c><tt>my_rand.c</tt></a> 
+ and <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pth-rw/my_rand.h><tt>my_rand.h</tt></a> to 
+ generate pseudo-random numbers.
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pth-rw/pth_linked_list_rwl.c>Pthreads 
+ linked list program that uses read-write locks to control 
+ access to the list</a>
+ This uses <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pth-rw/my_rand.c><tt>my_rand.c</tt></a> 
+ and <a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/pth-rw/my_rand.h><tt>my_rand.h</tt></a> to 
+ generate pseudo-random numbers.
+ </ul>
+<br>
+ <li> CUDA
+ <ul>
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/cuda/vec_add.cu>CUDA program
+ that implements vector addition</a>
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/cuda/dot0.cu>CUDA program
+ that implements dot product using the CUDA
+ function <tt>atomicAdd</tt></a>
+ <li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/cuda/dot1.cu>CUDA program
+ that implements dot product using a
+ tree structure.
+ </a><li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/cuda/dot2.cu>CUDA program
+ that implements dot product using a
+ tree structure and shared memory for 
+ intermediate calculations.
+ </a><li><a href=https://www.csee.umbc.edu/~tsimo1/CMSC483/cs220/code/cuda/mat_add.cu>CUDA program
+ that implements matrix addition</a>
+ </ul>
+</ul>
+<br>
+<br>
+<a href=http://www.csee.umbc.edu/~tsimo1/Courses/cmsc483/483.html>to Spring CMSC 483/691 Homepage</a>
+<br><hr>
+<address>
+Tyler Simon
+</address> 
+ 
+</font>

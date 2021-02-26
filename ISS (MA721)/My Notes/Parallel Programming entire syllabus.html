@@ -1,0 +1,449 @@
+<html><!--
+ Page saved with SingleFile 
+ url: http://www.cs.utah.edu/~mhall/cs4230f12/ 
+ saved date: Tue Dec 29 2020 11:08:25 GMT+0530 (India Standard Time)
+--><meta charset=utf-8>
+<title>Parallel Programming (CS 4230) - Fall 2012</title>
+<link type=image/x-icon rel="shortcut icon" href=data:image/vnd.microsoft.icon;base64,AAABAAEAEBAQAAAAAAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAwAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAgAAAAACAAACAgAAAAACAAIAAgAAAgIAAwMDAAICAgAD/AAAAAP8AAP//AAAAAP8A/wD/AAD//wD///8AAADMzMzMAAAADMzMzMzAAADMzMzMzMwADMzMzMzMzMAMzMzMzMzMwAzMzAAAzMzADMzMAADMzMAMzMwAAMzMwAzMzAAAzMzADMzMAADMzMAMzMwAAMzMwMzMzMAMzMzMzMzMwAzMzMzMzMzADMzMzMzMzMAMzMzMzMzMwAzMzMzwD///4Af//8AD//+AAf//gAH//4PB//+Dwf//g8H//4PB//+Dwf//g8H//wGA//8BgP//AYD//wGA//8BgP//><link rel=canonical href=http://www.cs.utah.edu/~mhall/cs4230f12/></head>
+<body style=margin-left:10px;margin-right:10px>
+<br>
+<table width=100%>
+<tbody><tr valign=top>
+<td width=200><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></td>
+<td>
+<div class=Section1>
+<h1><span style=font-size:20.0pt;mso-bidi-font-size:16.0pt>Parallel
+Programming (CS 4230) <o:p></o:p></span></h1>
+<h2> Fall 2012 </h2>
+<table>
+<tbody><tr><td><b>Schedule:</b></td>
+ <td>Tues./Thur., 9:10-10:30 AM</td>
+<tr><td><b>Location:</b></td>
+ <td>WEB L112</tr>
+<tr valign=bottom><td><b>Instructor:</b></td>
+ <td><a href=http://www.cs.utah.edu/~mhall>Mary Hall</a> <a href="mailto: mhall AT cs DOT utah DOT edu"></a></tr>
+<tr><td><b>Office Hours:</b></td>
+ <td>MEB 3466; Mondays, 11:00-11:30 AM; Thursdays, 10:45-11:15 AM or by appointment</tr>
+<tr><td valign=top><b>Mailing list:</b></td>
+ <td>cs4230@list.eng.utah.edu</tr>
+<tr><td valign=top><b>TA:</b></td>
+ <td> <a href=http://echo6.cs.utah.edu/wordpress-axel/> Axel Rivera </a>
+ <a href="mailto: axel.rivera AT utah DOT edu"> </a> </tr>
+</table>
+</div></td>
+<td align=right><a href=http://www.utah.edu/><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" valign=top border=0 align=right></a></td>
+</tr>
+</table>
+<br>
+Jump to:
+<a href=#background>[Background]</a> 
+<a href=#grading>[Grading]</a> 
+<a href=#books>[Textbook]</a> 
+<a href=#schedule>[Schedule]</a> 
+<a href=#homework>[Assignments]</a> 
+<a href=#policies>[Policies]</a> 
+<br>
+<h3> <a name=background></a><div class=title>&nbsp;Background and Description</div></h3>
+<p>
+This course is a comprehensive exploration of parallel programming paradigms, 
+examining core concepts, focusing on a subset of widely used
+contemporary parallel programmingmodels, 
+and providing context with a small set of parallel algorithms. 
+In the last few years, this area has been the subject of significant interest 
+due to a number of factors. Most significantly, the advent of multi-core 
+microprocessors has made parallel computing available to the masses. 
+At the high end, major vendors of large-scale parallel systems, including IBM, and Cray, have recently introduced new parallel programming languages 
+designed for applications that exploit tens of thousands of processors. 
+Embedded devices can also be thought of as small 
+multiprocessors. The convergence of these distinct markets offers an 
+opportunity to finally provide application programmers with a 
+productive way to express parallel computation.
+<p>
+<p>
+The course will be structured as lectures, homeworks, programming assignments
+and a final project. Students will perform four programming
+projects to express 
+algorithms using selected parallel programming models and measure their 
+performance. The final project will consist of teams of 2-3 students
+who will implement codes by combining multiple programming models. 
+<p>
+<b>Prerequisites:</b> 
+CS 4400, or concurrent
+<p>
+<h3> <a name=grading></a><div class=title>&nbsp;Grading</div></h3>
+<table width=80% cellpadding=5 border=0>
+<tbody><tr valign=top><td width=20><td><b>35%</b><td><b>Programming projects(P1, P2, P3, P4) </b><br>
+</tr>
+<tr valign=top><td><td><b>20%</b><td><b>Written homeworks</b><br>
+</tr>
+<tr valign=top><td><td><b>5%</b><td><b>Participation</b><br>
+</tr>
+<tr valign=top><td><td><b>25%</b><td><b>Quiz and Final</b><br>
+</tr>
+<tr valign=top><td><td><b>15%</b><td><b>Final project</b><br>
+</tr>
+</table><br>
+<b>Note:</b>Late homeworks are not allowed. Late projects will incur a 20% penalty 
+per day. 
+<h3><a name=books></a><div class=title>&nbsp;Textbook</div></h3>
+<table cellspacing=1 cellpadding=1 border=0>
+<tbody><tr><td><img src=data:image/jpeg;base64,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 valign=top height=200 align=left></td>
+<td>
+<a href=http://mkp.com/news/an-introduction-to-parallel-programming-by-peter-pacheco>
+An Introduction to Parallel Programming</a> by Peter Pacheco (ISBN: 
+978-0-12-374260-5).
+</table>
+<p>
+<h3><a name=schedule></a><div class=title>&nbsp;Schedule (tentative)</div></h3>
+The following schedule is subject to change with a week's notice, particularly 
+as opportunities for guest lectures and conflicts arise.
+The readings listed should be completed ahead of class so that you
+can follow the lecture and respond to questions.
+Homeworks and programming assignments are due before class so
+that we can discuss them.<p>
+<table cellpadding=4 border=0 bgcolor=#7B1324>
+<tbody><tr bgcolor=#A51A31>
+<td><b><font size=+1 color=#FFFFFF>Date</font></b></td>
+<td><b><font size=+1 color=#FFFFFF>Topics</font></b></td>
+<td align=center><b><font size=+1 color=#FFFFFF>Read</font></b></td>
+<td align=center><b><font size=+1 color=#FFFFFF>Assign</font></b></td>
+<td align=center><b><font size=+1 color=#FFFFFF>Notes</font></b></td>
+</tr>
+<tr valign=center bgcolor=#FFFFFF><td>21 Aug<td>
+<b><a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L1.ppt> Introduction (ppt) </a> <a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L1.pdf> (pdf) </a></b>
+<br>Importance of parallel programming
+</td>
+<td align=center>Chapter 1</td>
+<td align=center>-</td>
+<td align=center>-</td>
+</tr>
+<tr valign=center bgcolor=#FFFFEE><td>23 Aug<td>
+<b><b> <a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L2.ppt> Introduction to parallel algorithms and correctness (ppt) </a> <a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L2.pdf> (pdf) </a> </b></b>
+<br>Concerns for parallelism correctness and performance
+</td>
+<td align=center>Chapter 1</td>
+<td align=center><a href=#homework>HW01</a></td>
+<td align=center><a href=http://www.cs.utah.edu/~mhall/cs4230f12/L2-versions.c> Pthread sum code versions </a></td>
+</tr>
+<tr valign=center bgcolor=#FFFFFF><td>28 Aug<td>
+<b><a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L3.ppt> Parallel Computing Platforms, Memory Systems and Models of Execution (ppt)</a> <a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L3.pdf> (pdf) </a></b>
+<br>A diversity of parallel architectures, taxonomy, and examples
+</td>
+<td align=center>Chapter 2, 2.1-2.3, pgs. 15-46 </td>
+<td align=center>-</td>
+<td align=center>-</td>
+</tr>
+<tr><td colspan=5 bgcolor=#A51A31><center><i><font size=+1 color=#FFFFFF><b>Parallel Programming Model Concepts</b></font></i></center></tr>
+<tr valign=center bgcolor=#FFFFEE><td>30 Aug<td>
+<b><a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L4.ppt> Memory Systems and Introduction to Shared Memory Programming (ppt) </a> <a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L4.pdf> (pdf) </a></b>
+<br>Deeper understanding of memory systems and getting ready for programming
+</td>
+<td align=center>Ch. 2.4-2.4.3 (pgs. 47-52), 4.1-4.2 (pgs. 151-159), 5.1 (pgs. 209-215)</td>
+<td align=center><a href=#homework>HW02</a></td>
+<td align=center>-</td>
+</tr>
+<tr valign=center bgcolor=#FFFFFF><td>04 Sep<td>
+<b><a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L5.ppt> Data Parallelism in OpenMP(ppt) </a> <a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L5.pdf> (pdf) </a></b>
+<br>Introduction to OpenMP and Parallel Loops
+</td>
+<td align=center>Chapter 5.2-5.7, 5.10 (pgs. 216-241, 256-258)</td>
+<td align=center>-</td>
+<td align=center><a href="http://wikis.sun.com/download/attachments/31400118/N2_Announce_Breakout_final.pdf?version=1&amp;modificationDate=1212688201000"> Sun Ultrasparc T2 </a> http://www.youtube.com/watch?v=2pFOivcJ74g&amp;feature=relmfu </td>
+</tr>
+<tr valign=center bgcolor=#FFFFEE><td>06 Sep<td>
+<b><a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L6.ppt> Data Dependences(ppt) </a> <a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L6.pdf> (pdf) </a> </b>
+<br>Code restructuring techniques: permutation and tiling
+</td>
+<td align=center>-</td>
+<td align=center>-</td>
+<td align=center><a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L6notes.pdf> Dep Notes </a> <a href=http://www.cs.utah.edu/~mhall/cs4230f12/L6-versions.c> OpenMP distributions </a></td>
+</tr>
+<tr valign=center bgcolor=#FFFFFF><td>11 Sep<td>
+<b>Data parallel algorithms</b>
+</td>
+<td align=center>-</td>
+<td align=center>-</td>
+<td align=center>Watch videos: <a href="http://www.youtube.com/watch?v=9n1b9Uwvgaw&amp;feature=relmfu"> Implementing Domain Decompositions in OpenMP </a> <a href="http://www.youtube.com/watch?v=2pFOivcJ74g&amp;feature=relmfu"> Dense Linear Algebra I </a></td>
+</tr>
+<tr valign=center bgcolor=#FFFFEE><td>13 Sep<td>
+<b><a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L7.ppt> Data Locality (ppt) </a> <a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L7.pdf> (pdf) </a> </b>
+<br>Code restructuring techniques: tiling, unroll-and-jam and scalar replacement
+</td>
+<td align=center>-</td>
+<td align=center>-</td>
+<td align=center><a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L7notes.pdf> Locality Notes </a> </td>
+</tr>
+<tr valign=center bgcolor=#FFFFFF><td>18 Sep<td>
+<b><a href=http://www.cs.utah.edu/~mhall/cs4230f12/SVD-L8.ppt> Singular Value Decomposition (ppt) </a> </b>
+<br><a href=http://www.cs.utah.edu/~mhall/cs4230f12/SVD-L8.pdf> (pdf) </a><br>Algorithm Description for SVD
+</td>
+<td align=center>-</td>
+<td align=center>-</td>
+<td align=center>-</td>
+</tr>
+<tr valign=center bgcolor=#FFFFEE><td>20 Sep<td>
+<b><a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L9.ppt> More Locality and Data Parallelism (ppt) </a> <a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L9.pdf> (pdf) </a></b>
+<br>Tiling example and Red-Blue example
+</td>
+<td align=center>-</td>
+<td align=center><a href=#homework>P02</a></td>
+<td align=center><a href=http://www.cs.utah.edu/~mhall/cs4230f12/L9-versions.c> Locality versions </a></td>
+</tr>
+<tr valign=center bgcolor=#FFFFFF><td>25 Sep<td>
+<b><a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L10.ppt> Data Parallelism (ppt) </a> <a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L10.pdf> (pdf) </a></b>
+<br>Finish Red-Blue example, Stencils
+</td>
+<td align=center>-</td>
+<td align=center>-</td>
+<td align=center><a href=https://hpcforge.org/plugins/mediawiki/wiki/stencilplusplus/index.php/GSCL_Tutorial> Stencil notes </a></td>
+</tr>
+<tr valign=center bgcolor=#FFFFEE><td>27 Sep<td>
+<b>Lab Day</b>
+<br>Go over programming assignment
+</td>
+<td align=center>-</td>
+<td align=center>-</td>
+<td align=center>-</td>
+</tr>
+<tr valign=center bgcolor=#FFFFFF><td>02 Oct<td>
+<b><a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L11.ppt> Breaking Dependences, and Introduction to Task Parallelism (ppt) </a> <a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L11.pdf> (pdf) </a></b>
+<br>Parallel sections, Producer-consumer parallelism
+</td>
+<td align=center>-</td>
+<td align=center>-</td>
+<td align=center>-</td>
+</tr>
+<tr valign=center bgcolor=#FFFFEE><td>04 Oct<td>
+<b><a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L12.pdf> (pdf) </a></b>
+<br>OpenMP sections and tasks
+</td>
+<td align=center>Chapter 5.8 (pgs. 241-450)</td>
+<td align=center>-</td>
+<td align=center><a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L12.ppt> More Task Parallelism (ppt) </a> </td>
+</tr>
+<tr valign=center bgcolor=#FFFFFF><td>16 Oct<td>
+<b><a href=http://www.cs.utah.edu/~mhall/cs4230f12/2011midterm.pdf> Midterm Review </a></b>
+<br>-
+</td>
+<td align=center>-</td>
+<td align=center>-</td>
+<td align=center><a href=http://www.cs.utah.edu/~mhall/cs4230f12/L12-versions.c> Task-parallel versions </a></td>
+</tr>
+<tr valign=center bgcolor=#FFFFEE><td>18 Oct<td>
+<b>-</b>
+<br>Midterm
+</td>
+<td align=center>-</td>
+<td align=center>-</td>
+<td align=center>-</td>
+</tr>
+<tr><td colspan=5 bgcolor=#A51A31><center><i><font size=+1 color=#FFFFFF><b>Message Passing</b></font></i></center></tr>
+<tr valign=center bgcolor=#FFFFFF><td>23 Oct<td>
+<b><a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L13.ppt> Introduction to Message Passing (ppt) </a></b>
+<br><a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L13.pdf> (pdf) </a><br>What is MPI? Complexities of a distributed address space
+</td>
+<td align=center>Chapter 3.1-3.2, 3.4, pgs. 83-96, 101-106</td>
+<td align=center>-</td>
+<td align=center>-</td>
+</tr>
+<tr valign=center bgcolor=#FFFFEE><td>25 Oct<td>
+<b><a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L14.ppt> MPI Communication (ppt) </a> <a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L14.pdf> (pdf) </a></b>
+<br>Non-blocking communication, One-sided communication
+</td>
+<td align=center>-</td>
+<td align=center><a href=#homework>P03</a></td>
+<td align=center>-</td>
+</tr>
+<tr valign=center bgcolor=#FFFFFF><td>30 Oct<td>
+<b><a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L15.ppt> Putting it Together: N-Body (ppt) </a> <a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L15.pdf> (pdf) </a></b>
+<br>N-body 
+</td>
+<td align=center>Chapter 6.1</td>
+<td align=center>-</td>
+<td align=center>-</td>
+</tr>
+<tr><td colspan=5 bgcolor=#A51A31><center><i><font size=+1 color=#FFFFFF><b>Parallel Programming for GPUs</b></font></i></center></tr>
+<tr valign=center bgcolor=#FFFFEE><td>01 Nov<td>
+<b><a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L16.ppt> Introduction to GPUs and CUDA (ppt) </a></b>
+<br><a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L16.pdf> (pdf) </a><br>Architecture and programming constructs
+</td>
+<td align=center>(Optional) CUDA Programming Guide</td>
+<td align=center>-</td>
+<td align=center><a href=http://www.ddj.com/cpp/207200659> DDJ article </a></td>
+</tr>
+<tr valign=center bgcolor=#FFFFFF><td>06 Nov<td>
+<b><a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L17.ppt> CUDA, cont. (ppt)</a> <a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L17.pdf> (pdf)</a></b>
+<br>SIMT execution model, divergent branches, memory hierarchy
+</td>
+<td align=center>-</td>
+<td align=center><a href=#homework>P04</a></td>
+<td align=center>-</td>
+</tr>
+<tr valign=center bgcolor=#FFFFEE><td>08 Nov<td>
+<b><a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L18.ppt> CUDA, cont. (ppt)</a> <a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L18.pdf> (pdf)</a></b>
+<br>More memory hierarchy and examples
+</td>
+<td align=center>-</td>
+<td align=center>-</td>
+<td align=center>-</td>
+</tr>
+<tr valign=center bgcolor=#FFFFFF><td>13 Nov<td>
+<b><a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L19.ppt> SIMD multimedia extensions (ppt)</a> <a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L19.pdf> (pdf) </a> <a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L19.mov> (video) </a></b>
+<br>Multimedia extension architectures, performance issues
+</td>
+<td align=center>-</td>
+<td align=center>-</td>
+<td align=center>-</td>
+</tr>
+<tr><td colspan=5 bgcolor=#A51A31><center><i><font size=+1 color=#FFFFFF><b>Parallel Algorithms</b></font></i></center></tr>
+<tr valign=center bgcolor=#FFFFEE><td>15 Nov<td>
+<b><a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L20.ppt> Sparse Algorithms (ppt) </a><a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L20.pdf> (pdf) </a></b>
+<br>Sparse Graphs and Matrices
+</td>
+<td align=center>Chapter 3.3,3.5-3.7 (pgs. 106-136)</td>
+<td align=center>-</td>
+<td align=center>-</td>
+</tr>
+<tr valign=center bgcolor=#FFFFFF><td>20 Nov<td>
+<b><a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L20.ppt> Parallel Graph Algorithms (ppt) </a> <a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L20.pdf> (pdf) </a></b>
+<br>Tree Search, Traveling Salesperson Problem
+</td>
+<td align=center>Chapter 6.2</td>
+<td align=center>-</td>
+<td align=center>-</td>
+</tr>
+<tr valign=center bgcolor=#FFFFEE><td>27 Nov<td>
+<b>SSE SIMD review</b>
+<br>-
+</td>
+<td align=center>-</td>
+<td align=center>-</td>
+<td align=center>Examples, compile with "icc -O3 -msse3 -vec-report=3 <file.c>" <a href=http://www.cs.utah.edu/~mhall/cs4230f12/t1.c> t1.c </a> <a href=http://www.cs.utah.edu/~mhall/cs4230f12/t2.c> t2.c </a> <a href=http://www.cs.utah.edu/~mhall/cs4230f12/t3.c> t3.c </a> <a href=http://www.cs.utah.edu/~mhall/cs4230f12/t4.c> t4.c </a> <a href=http://www.cs.utah.edu/~mhall/cs4230f12/t5.c> t5.c </a></file.c></td>
+</tr>
+<tr valign=center bgcolor=#FFFFFF><td>29 Nov<td>
+<b><a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L21.ppt> Course Retrospective and Future Directions for Parallel Computing (ppt) </a></b>
+<br><a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-L21.pdf> (pdf) </a><br>Where the field is going
+</td>
+<td align=center>Chapter 7</td>
+<td align=center>-</td>
+<td align=center>-</td>
+</tr>
+<tr><td colspan=5 bgcolor=#A51A31><center><i><font size=+1 color=#FFFFFF><b>Project Presentations</b></font></i></center></tr>
+<tr valign=center bgcolor=#FFFFEE><td>04 Dec<td>
+<b>Project Presentations, Dry Run</b>
+<br>-
+</td>
+<td align=center>-</td>
+<td align=center>-</td>
+<td align=center>-</td>
+</tr>
+<tr valign=center bgcolor=#FFFFFF><td>06 Dec<td>
+<b>Project Presentations Poster Session</b>
+<br>-
+</td>
+<td align=center>-</td>
+<td align=center>-</td>
+<td align=center>-</td>
+</tr>
+<tr valign=center bgcolor=#FFFFEE><td>11 Dec<td>
+<b>-</b>
+<br>-
+</td>
+<td align=center>-</td>
+<td align=center>-</td>
+<td align=center>-</td>
+</tr>
+<tr valign=center bgcolor=#FFFFFF><td>13 Dec<td>
+<b>Final exam</b>
+<br>-
+</td>
+<td align=center>-</td>
+<td align=center>-</td>
+<td align=center>-</td>
+</tr>
+</table>
+<h3><a name=homework></a><div class=title>&nbsp;Assignments</div></h3>
+All written homeworks are due one week
+from when they are assigned. 
+See the schedule above for due dates. Use <b> handin </b>, and submit PDF 
+files. Programming assignments will sometimes be given more time if they 
+require more depth. The final programming assignment
+will be a group project for teams of 1 to 3 students.<p>
+<b>Written Homework</b>
+<ul>
+ <li><b>HW01</b>: <a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-hw1.pdf> 
+Parallel Algorithms Basics</a>
+Due before class, Thursday, August 30
+<p>
+ </p><li><b>HW02</b>: <a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-hw2.pdf> 
+Mapping to Shared Memory Architecture</a>
+Due before class, Thursday, September 6
+<p>
+ </p><li><b>HW03</b>: <a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-hw3.pdf> 
+Midterm review questions</a>
+Due before class, Thursday, October 18
+<p>
+</p></ul>
+<b>Programming Assignments</b>
+<ul>
+<li><b>P01</b>: 
+<a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-proj1.pdf> OpenMP, Pthreads and Parallelism Overhead/Granularity </a> <a href=http://www.cs.utah.edu/~mhall/cs4230f12/pi-test-harness.c> (pi-test-harness.c) </a>
+Due 11PM Friday, September 14
+<p>
+</p><li><b>P02</b>: 
+<a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-proj2.pdf> OpenMP Data Parallel Computation </a>
+<a href=http://www.cs.utah.edu/~mhall/cs4230f12/SVD.cpp> (sequential code SVD.cpp) </a>
+<a href=http://www.cs.utah.edu/~mhall/cs4230f12/randomMatrix.txt> (python input matrix generator) </a>
+<a href=http://www.cs.utah.edu/~mhall/cs4230f12/Validation.m> (validation module in Octave) </a>
+<a href=http://www.cs.utah.edu/~mhall/cs4230f12/Validation.cpp> (validation module in CPP) </a>
+Due 11:59PM Thursday, October 5
+<p>
+</p><li><b>P03</b>: 
+<a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-proj3.pdf> MPI Data Parallel Computation </a>
+<a href=http://www.cs.utah.edu/~mhall/cs4230f12/Reduction.cpp> (sequential code Reduction.cpp) </a>
+<a href=http://www.cs.utah.edu/~mhall/cs4230f12/Random_matrix.txt> (python input matrix generator) </a>
+<a href=http://www.cs.utah.edu/~mhall/cs4230f12/Validation_mpi.cpp> (validation module in CPP) </a>
+Due 11:59PM Friday, November 2
+<p>
+</p><li><b>P04</b>: 
+<a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-proj4.pdf> SVD: Putting it Together </a>
+Due 11:59PM Tuesday, November 13
+<p>
+</p><li><b>P05</b>: 
+<a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-proj5.pdf> Sparse Matrix Vector Multiplication in CUDA </a>
+CUDA and Irregular Parallel Algorithms
+<a href=http://www.cs.utah.edu/~mhall/cs4230f12/sparse_matvec.c> (Sequential code: sparse_matvec.c) </a>
+<a href=http://www.cs.utah.edu/~mhall/cs4230f12/sm1.txt> (Testing input file: sm1.txt) </a>
+<a href=http://www.cs.utah.edu/~mhall/cs4230f12/sm2.txt> (Actual input file: sm2.txt) </a>
+<a href=http://www.cs.utah.edu/~mhall/cs4230f12/dense_matvec.cu> (Dense matvec CUDA code: dense_matvec.cu) </a>
+<a href=http://www.cs.utah.edu/~mhall/cs4230f12/makefile> (Makefile for CADE Linux machines) </a>
+Due 11:59PM, Wednesday, November 28
+<p>
+</p></ul>
+<b>Final Project</b>
+The final project will be a group project with teams of 2 to 3 students (single-student projects may be approved by the instructor in some cases). You 
+will combine two of the parallel programming models we learned in 
+class and develop a non-trivial application.
+<li> <a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-pdesc.pdf> Project description </a> 
+<li> <a href=http://www.cs.utah.edu/~mhall/cs4230f12/CS4230-poster.pdf> Poster presentation </a> <a href=http://www.cs.utah.edu/~mhall/cs4230f12/poster.pdf> example poster </a> 
+<li> Poster dry run in class, Tues., Dec. 4
+<li> Presentation in class, Thurs., Dec. 6
+<li> 2-4 page report summarizing poster and project completion
+and software, due 11:59PM, Thurs., Dec. 13
+<p>
+<b>Final Exam</b>
+Take-home exam <a href=http://www.cs.utah.edu/~mhall/cs4230f12/final.pdf> final </a>, due 11:59PM, Thurs., Dec. 13
+<h3><a name=policies></a><div class=title>&nbsp;Policies</div></h3>
+<b> Laptops in class: </b> Laptops should not be used in class, unless you
+have an ADA exemption. (see ADA policy below)
+<p>
+<b>Cheating:</b> Any assignment or exam that is handed in must be your own work. It must be in your own words, and based on your own understanding of the solution. However, talking with one another to understand the material better is strongly encouraged. 
+ When taking an exam, you must work independently. Any collaboration during an exam will be considered cheating.
+ Any student who is caught cheating will be given an E in the course and referred to the University Student Behavior Committee. 
+<p>
+<b>ADA:</b> The University of Utah conforms to all standards of the Americans with
+Disabilities Act (ADA). If you wish to qualify for exemptions under this act,
+notify the Center for Disabled Students Services, 160 Union.<p>
+<b>College guidelines:</b> Document concerning adding, dropping, etc. <a href=http://www.coe.utah.edu/SemesterGuidelines.pdf>here</a>.
+<p>
+</p></li>
