@@ -47,6 +47,7 @@ public:
             if (ptr->key == k)
             {
                 temp = ptr;
+                break;
             }
             ptr = ptr->next;
         }
@@ -56,7 +57,7 @@ public:
     {
         if (nodeExists(n->key) != NULL)
         {
-            cout << "Node already exists with key value" << n->key << "." << endl;
+            cout << "Node already exists with key value " << n->key << "." << endl;
         }
         else
         {
@@ -185,9 +186,11 @@ public:
 };
 int main()
 {
-    int varForDataTypeSelection, varForSwitchCase, key1, k1;
+    int  key1, k1;
+    char varForDataTypeSelection, varForSwitchCase;
     do
     {
+        Title:
         cout << "\n=====================================================================================" << endl;
         cout << "**************************** Singly Linked list Operations **************************" << endl;
         cout << "=====================================================================================" << endl;
@@ -195,9 +198,12 @@ int main()
         cout << "1.INT     2.DOUBLE    3.FLOAT     4.CHAR     5.Clear Screen     6.Exit from program" << endl;
         cout << ">";
         cin >> varForDataTypeSelection;
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cin.clear();
-        if (varForDataTypeSelection == 1)
+        if(!isdigit(varForDataTypeSelection))
+        {
+            cout << "Invalid Input" << endl;
+            goto Title;
+        }
+        if (((int)varForDataTypeSelection - '0') == 1)
         {
             int data1;
             cout << "Selected Data type: INT" << endl;
@@ -205,10 +211,16 @@ int main()
             SinglyLinkedList<int> s, callobj;
             do
             {
+                label:
                 cout << "\n1.Append Node\n2.PrependNode\n3.Insert Node after a particular node\n4.Delete Node\n5.Update Node data\n6.Print singly linked list\n7.Clear Screen\n8.Go to previous menu\n> ";
                 cin >> varForSwitchCase;
+                if(!isdigit(varForSwitchCase))
+                {
+                    cout << "Invalid input" << endl;
+                    goto label;
+                }
                 Node<int> *n1 = new Node<int>();
-                switch (varForSwitchCase)
+                switch ((int)varForSwitchCase - '0')
                 {
                 case 1:
                 {
@@ -290,7 +302,7 @@ int main()
                 case 8:
                 {
                     cout << "=====================================================================================" << endl;
-                    break;
+                    goto Title;break;
                 }
                 default:
                 {
@@ -300,7 +312,7 @@ int main()
                 }
             } while (varForSwitchCase != 8);
         }
-        else if (varForDataTypeSelection == 2)
+        else if (((int)varForDataTypeSelection - '0') == 2)
         {
             double data1;
             cout << "Selected Data type: DOUBLE" << endl;
@@ -308,12 +320,16 @@ int main()
             SinglyLinkedList<double> s;
             do
             {
+                label2:
                 Node<double> *n1 = new Node<double>();
                 cout << "\n1.Append Node\n2.PrependNode\n3.Insert Node after a particular node\n4.Delete Node\n5.Update Node data\n6.Print singly linked list\n7.Clear Screen\n8.Go to previous menu\n> ";
                 cin >> varForSwitchCase;
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                std::cin.clear();
-                switch (varForSwitchCase)
+                if(!isdigit(varForSwitchCase))
+                {
+                    cout << "Invalid input" << endl;
+                    goto label2;
+                }
+                switch ((int)varForSwitchCase - '0')
                 {
                 case 1:
                 {
@@ -395,7 +411,7 @@ int main()
                 case 8:
                 {
                     cout << "=====================================================================================" << endl;
-                    break;
+                    goto Title;break;
                 }
                 default:
                 {
@@ -405,7 +421,7 @@ int main()
                 }
             } while (varForSwitchCase != 8);
         }
-        else if (varForDataTypeSelection == 3)
+        else if (((int)varForDataTypeSelection - '0') == 3)
         {
             float data1;
             cout << "Selected Data type: FLOAT" << endl;
@@ -413,12 +429,16 @@ int main()
             SinglyLinkedList<float> s;
             do
             {
+                label3:
                 Node<float> *n1 = new Node<float>();
                 cout << "\n1.Append Node\n2.PrependNode\n3.Insert Node after a particular node\n4.Delete Node\n5.Update Node data\n6.Print singly linked list\n7.Clear Screen\n8.Go to previous menu\n> ";
                 cin >> varForSwitchCase;
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                std::cin.clear();
-                switch (varForSwitchCase)
+                if(!isdigit(varForSwitchCase))
+                {
+                    cout << "Invalid input" << endl;
+                    goto label3;
+                }
+                switch ((int)varForSwitchCase-'0')
                 {
                 case 1:
                 {
@@ -500,7 +520,7 @@ int main()
                 case 8:
                 {
                     cout << "=====================================================================================" << endl;
-                    break;
+                    goto Title;break;
                 }
                 default:
                 {
@@ -510,7 +530,7 @@ int main()
                 }
             } while (varForSwitchCase != 8);
         }
-        else if (varForDataTypeSelection == 4)
+        else if (((int)varForDataTypeSelection - '0') == 4)
         {
             char data1;
             cout << "Selected Data type: CHAR" << endl;
@@ -518,12 +538,16 @@ int main()
             SinglyLinkedList<char> s;
             do
             {
+                label4:
                 Node<char> *n1 = new Node<char>();
                 cout << "\n1.Append Node\n2.PrependNode\n3.Insert Node after a particular node\n4.Delete Node\n5.Update Node data\n6.Print singly linked list\n7.Clear Screen\n8.Go to previous menu\n> ";
                 cin >> varForSwitchCase;
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                std::cin.clear();
-                switch (varForSwitchCase)
+                if(!isdigit(varForSwitchCase))
+                {
+                    cout << "Invalid input" << endl;
+                    goto label4;
+                }
+                switch ((int)varForSwitchCase - '0')
                 {
                 case 1:
                 {
@@ -605,6 +629,7 @@ int main()
                 case 8:
                 {
                     cout << "=====================================================================================" << endl;
+                    goto Title;
                     break;
                 }
                 default:
@@ -615,11 +640,11 @@ int main()
                 }
             } while (varForSwitchCase != 8);
         }
-        else if (varForDataTypeSelection == 5)
+        else if (((int)varForDataTypeSelection - '0') == 5)
         {
             system("clear");
         }
-        else if (varForDataTypeSelection == 6)
+        else if (((int)varForDataTypeSelection - '0') == 6)
         {
             cout << "\n\nThanks for Using Program!" << endl;
             cout << "Program Ended\n\n" << endl;
@@ -632,6 +657,6 @@ int main()
             cout << "Invalid input!\nTry Again:)" << endl;
         }
 
-    } while (varForDataTypeSelection != 4);
+    } while (((int)varForDataTypeSelection - '0') != 4);
     return 0;
 }

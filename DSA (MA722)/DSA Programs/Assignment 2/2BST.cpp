@@ -214,6 +214,8 @@ public:
         for (int i = 0; i <= h; i++)
             printGivenLevel(n, i);
     }
+
+
     int DepthOfTree(treeNode<T> *root)
     {
         if (root == NULL)
@@ -224,16 +226,10 @@ public:
         {
             int x = DepthOfTree(root->left);
             int y = DepthOfTree(root->right);
-            if (x > y)
-            {
-                return x + 1;
-            }
-            else
-            {
-                return y + 1;
-            }
+            return x>y? x+1:y+1;
         }
     }
+
     int TotalNumberOfNodesInTree(treeNode<T> *root)
     {
         if (root == NULL)
@@ -247,6 +243,7 @@ public:
             return x + y + 1;
         }
     }
+
     int CalcNodesAtEachLevel(treeNode<T> *n, int curr, int desired)
     {
         if (n == NULL)
@@ -258,6 +255,7 @@ public:
             return CalcNodesAtEachLevel(n->left, curr + 1, desired) + CalcNodesAtEachLevel(n->right, curr + 1, desired);
         }
     }
+
     void printNumberOfNodesAtEachLevel(treeNode<T> *root)
     {
         int h = DepthOfTree(root);
@@ -326,6 +324,7 @@ public:
         }
         return r;
     }
+
     T CheckIfNodeExists(T n)
     {
         queue<T> q;
@@ -353,6 +352,7 @@ public:
         }
     }
 };
+
 int main()
 {
     int user_input;

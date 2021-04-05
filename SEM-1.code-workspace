@@ -74,7 +74,23 @@
 			"cinttypes": "cpp",
 			"typeinfo": "cpp",
 			"valarray": "cpp",
-			"variant": "cpp"
+			"variant": "cpp",
+			"any": "cpp",
+			"bitset": "cpp",
+			"cfenv": "cpp",
+			"charconv": "cpp",
+			"codecvt": "cpp",
+			"complex": "cpp",
+			"csetjmp": "cpp",
+			"csignal": "cpp",
+			"cuchar": "cpp",
+			"forward_list": "cpp",
+			"regex": "cpp",
+			"numbers": "cpp",
+			"scoped_allocator": "cpp",
+			"shared_mutex": "cpp",
+			"span": "cpp",
+			"typeindex": "cpp"
 		},
 		"jupyter.jupyterServerType": "local"
 	}
